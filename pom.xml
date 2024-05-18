@@ -1,17 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.thoaikx</groupId>
-    <artifactId>automation-framewordk-selenium</artifactId>
-    <version>1.0-SNAPSHOT</version>
+  <groupId>org.thoaikx</groupId>
+  <artifactId>automation-framewordk-selenium</artifactId>
+  <version>1.0-SNAPSHOT</version>
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-    
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
+    <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+    <aspectj.version>1.9.22</aspectj.version>
+    <selenium.version>4.19.1</selenium.version>
+    <testng.version>7.10.1</testng.version>
+    <assertj.version>3.25.3</assertj.version>
+    <datafaker.version>2.1.0</datafaker.version>
+    <log4j.version>2.23.1</log4j.version>
+    <owner.version>1.0.12</owner.version>
+    <allure.version>2.27.0</allure.version>
+    <allure-maven.version>2.12.0</allure-maven.version>
+    <drivermanager.version>5.5.3</drivermanager.version>
+
+    <allure-environment-writer.version>1.0.0</allure-environment-writer.version>
+    <allure.cmd.download.url>
+      https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline
+    </allure.cmd.download.url>
+    <suite>local</suite>
+
+
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>${drivermanager.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>${selenium.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>${testng.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.webjars</groupId>
+          <artifactId>jquery</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>${assertj.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>net.datafaker</groupId>
+      <artifactId>datafaker</artifactId>
+      <version>${datafaker.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-slf4j-impl</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.aeonbits.owner</groupId>
+      <artifactId>owner</artifactId>
+      <version>${owner.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-testng</artifactId>
+      <version>${allure.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-attachments</artifactId>
+      <version>${allure.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.github.automatedowl</groupId>
+      <artifactId>allure-environment-writer</artifactId>
+      <version>${allure-environment-writer.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.google.guava</groupId>
+          <artifactId>guava</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+  </dependencies>
+
 </project>
