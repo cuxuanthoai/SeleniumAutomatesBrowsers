@@ -113,11 +113,6 @@
     </dependency>
 
     <dependency>
-      <groupId>org.testcontainers</groupId>
-      <artifactId>selenium</artifactId>
-      <version>${testcontainers.selenium.version}</version>
-    </dependency>
-    <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <version>1.18.30</version>
@@ -127,6 +122,7 @@
   </dependencies>
 
   <!-- This profile execute the TestNG suite inside the suites folder on test/resources -->
+ <!-- https://maven.apache.org/surefire/maven-surefire-plugin/examples/testng.html-->
   <profiles>
     <profile>
       <id>web-execution</id>
@@ -152,15 +148,18 @@
     <pluginManagement>
       <plugins>
         <plugin>
+         <!-- https://maven.apache.org/plugins/-->
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>${maven-surefire-plugin.version}</version>
+          <!--https://www.baeldung.com/aspectj-->
           <configuration>
             <argLine>
               -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
             </argLine>
             <testFailureIgnore>false</testFailureIgnore>
           </configuration>
+
           <dependencies>
             <dependency>
               <groupId>org.aspectj</groupId>
