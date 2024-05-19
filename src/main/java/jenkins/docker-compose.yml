@@ -1,0 +1,24 @@
+
+# refer https://www.atlantic.net/dedicated-server-hosting/how-to-install-jenkins-with-docker-and-docker-compose-on-arch-linux/
+#step 1 : docker-compose up -d
+#step 2 : docker-compose ps
+#step 3 :
+#  You will also need Jenkins’s initial admin password to perform the Jenkins web-based installation.
+#  You can get the Jenkins admin password with the following command.
+#  docker exec jenkins-lts cat /var/jenkins_home/secrets/initialAdminPassword ( to get adminstrator password)
+#or can check docker logs jenkins-lts | less
+#step 4 : access http://localhost:8080/ to
+version: '3.7'
+services:
+  jenkins:
+    image: jenkins/jenkins:lts-jdk17
+    privileged: true
+    user: root
+    ports:
+      - 8080:8080
+      - 50000:50000
+    container_name: jenkins-lts-jdk17
+    volumes:
+      - ~/jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/local/bin/docker:/usr/local/bin/docker

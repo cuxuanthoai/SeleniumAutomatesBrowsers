@@ -1,6 +1,7 @@
 [docker]
 # Configs have a mapping between the Docker image to use and the capabilities that need to be matched to
 # start a jenkins with the given image.
+# refer : https://github.com/SeleniumHQ/docker-selenium?tab=readme-ov-file#dynamic-grid
 configs = [
     "selenium/standalone-firefox:latest", "{\"browserName\": \"firefox\"}",
     "selenium/standalone-chrome:latest", "{\"browserName\": \"chrome\"}"
@@ -12,6 +13,7 @@ configs = [
 # To have Docker listening through tcp on macOS, install socat and run the following command
 # socat -4 TCP-LISTEN:2375,fork UNIX-CONNECT:/var/run/docker.sock
 url = "http://host.docker.internal:2375"
+#url = "http://127.0.0.1:2375"
 # Docker image used for video recording
 video-image = "selenium/video:latest"
 

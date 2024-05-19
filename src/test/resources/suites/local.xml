@@ -2,7 +2,7 @@
 <suite name="Multi browser test" verbose="1">
 
     <test name="Test">
-        <parameter name="browser" value="edge"/>
+        <parameter name="browser" value="chrome"/>
         <classes>
             <class name="com.thoaikx.test.GetDumpTest"/>
         </classes>
