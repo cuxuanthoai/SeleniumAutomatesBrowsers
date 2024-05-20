@@ -1,5 +1,10 @@
 
 # Create Docker network
+
+# install git for window then cd to here then ./run.sh
+# after finish run docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword to get password
+# docker ps to get id container then run cmd  docker exec {id container} cat /var/jenkins_home/secrets/initialAdminPassword
+
 docker network create jenkins
 
 # Run Docker-in-Docker container

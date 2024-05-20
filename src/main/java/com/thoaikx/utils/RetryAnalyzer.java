@@ -21,6 +21,5 @@ public class RetryAnalyzer  implements IRetryAnalyzer {
 
   @Test(retryAnalyzer = RetryAnalyzer.class)
   private  void  testRetry (){
-
   }
 }
